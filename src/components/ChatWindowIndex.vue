@@ -3,26 +3,33 @@
 <span v-if="timestamp" :class="{'ChatWindowIndexTimestamp': true, 'hide': hideDate}">
 {{dateIndex}} ago
 </span>
-<span :class="{'ChatWindowIndexInner': true, 'main': float == 'left','secondary': float == 'right'}">
+<div :class="{'ChatWindowIndexInner': true}"
+:style="{ backgroundColor:  ColorScheme.primary, color: ColorScheme.fontColor}">
+<div class="ChatWindowIndexTxt">
 <vue-simple-markdown :source="text"></vue-simple-markdown>
-</span>
+</div>
+</div>
 </div>
 </template>
 <script>
 import moment from 'moment'
+import ColorScheme from '../ColorScheme';
 
 export default {
   name: 'ChatWindowIndex',
   props:{
     text: String,
     timestamp: Number,
-    float: String
+    float: String,
+    scheme: String
   },
   data(){
     return {
       dateUpdate: null,
       dateIndex: moment(this.timestamp).fromNow(true),
-      hideDate : false
+      hideDate : false,
+      ColorScheme: ColorScheme[(this.scheme || 'default')],
+
     }
   },
   methods: {
@@ -34,12 +41,13 @@ export default {
     }
   },
   mounted(){
+    console.log(this.ColorScheme);
     this.dateUpdate = setInterval(x=>{ 
       if(this.timestamp){
         this.dateIndex = moment(this.timestamp).fromNow(true);
         this.hideDate = true;
       }
-    },3000);
+    },60000); //Every minute
   },
   beforeDestroy(){
     clearInterval(this.dateUpdate);
@@ -53,8 +61,7 @@ export default {
 .ChatWindowIndex{
   border-radius: 10px;
   font-size: 1.2em;
-  overflow: hidden;
-    display: flex;
+  display: flex;
   justify-content: center;
   animation: fadeIn 0.25s ease;
   margin: 10px;
@@ -62,6 +69,12 @@ export default {
 .ChatWindowIndexInner{
   padding: 10px;
   border-radius: 10px;
+  max-width: 80%;
+
+}
+.ChatWindowIndexTxt{
+  text-align: left;
+  flex-wrap: wrap;
 }
 .ChatWindowIndexTimestamp{
   padding: 10px;
@@ -71,14 +84,6 @@ export default {
 }
 .hide{
   opacity: 0;
-}
-.main{
-  background: LightCyan;
-}
-
-.secondary{
-  background: Turquoise;
-
 }
 
 .left{

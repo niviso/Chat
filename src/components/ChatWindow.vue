@@ -62,6 +62,9 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.inputDetails{
+    padding: 10px;
+}
 .startMessage{
   padding: 10px;
 }
@@ -73,6 +76,7 @@ export default {
   height: 10%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
 }
