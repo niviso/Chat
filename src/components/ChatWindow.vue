@@ -72,5 +72,8 @@ export default {
 .input{
   height: 10%;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 </style>

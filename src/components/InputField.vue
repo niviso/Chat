@@ -1,8 +1,8 @@
 <template>
-<div class="InputField">
+<div :class="{'expanded' : expand, 'InputField': true}">
 <textarea
   autofocus
-  v-on:keypress.13="submit"
+  v-on:keypress="submit"
   v-model="value"
 ></textarea>
 <div class="InputFieldSubmitBtn">
@@ -17,12 +17,26 @@ export default{
 
   methods: {
     submit(e){
+      if(this.value.length > this.expandInterval){
+        this.expand = true;
+      } else if(this.value.length < this.expandInterval) {
+        this.expand = false;
+      }
+
+      if(e.keyCode == 13 && e.shiftKey){
+        this.expand = true;
+        this.value += "\n";
+        e.preventDefault();
+      }
+      else if(e.keyCode == 13 && !e.shiftKey){
       e.preventDefault();
       if(this.value.length == 0){
         return;
       }
+
       this.onSubmit(this.value);
       this.value = "";
+      }
     },
     keyPress(e){
 
@@ -33,7 +47,9 @@ export default{
   },
     data () {
     return {
-      value : ''
+      value : '',
+      expand: false,
+      expandInterval: 1
     }
     },
 }
@@ -42,8 +58,12 @@ export default{
 <style scoped>
 .InputField{
     width: 100%;
-  height: 100%;
+  height: 50%;
   display: flex;
+  transition: 0.25s all;
+}
+.expanded{
+  height: 100%;
 }
 .InputFieldSubmitBtn{
   position: relative;
@@ -88,6 +108,7 @@ textarea{
   outline: 0;
   font-size: 1.2em;
   padding: 10px;
+
   border: 0px;
   border-top: 1px solid black;
     border-left: 1px solid black;
