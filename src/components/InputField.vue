@@ -74,6 +74,7 @@ export default{
   justify-content: center;
   align-items: center;
   border: 1px solid black;
+  border-bottom: 0px solid white;
   font-size: 1.2em;
   transition: 0.25s all ease;
   z-index: 1;
