@@ -47,9 +47,19 @@ export default{
 }
 .ChatBoxIndexName{
   padding: 10px;
+  text-align: left;
 }
 
 .Active,.ChatBoxIndex:hover{
   background: Turquoise;
+}
+
+@media screen and (max-width: 800px) {
+  .ChatBoxIndexImg{
+    display: none;
+  }
+  .ChatBoxIndex{
+    font-size: 1em;
+  }
 }
 </style>

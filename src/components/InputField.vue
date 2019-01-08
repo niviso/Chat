@@ -115,4 +115,9 @@ textarea{
     border-left: 1px solid black;
 
 }
+@media screen and (max-width: 800px) {
+  .InputFieldSubmitBtn{
+    width: 50%;
+  }
+}
 </style>
