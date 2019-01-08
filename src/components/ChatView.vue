@@ -11,6 +11,8 @@
 </template>
 <script>
 import ChatState from '../ChatState';
+import DataState from '../DataState';
+
 import ChatBox from './ChatBox';
 import ChatWindow from './ChatWindow';
 
@@ -24,7 +26,8 @@ export default{
     return {
       fromId: 0,
       toId: 1,
-      state: ChatState
+      state: ChatState,
+      dataState: DataState
     }
   }
 }

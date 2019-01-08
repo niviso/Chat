@@ -5,7 +5,7 @@
 <vue-simple-markdown source="**Start with a hello :smirk:**"></vue-simple-markdown>
 </div>
   <div v-for="(item, index) in state.dataManager.getMessages()">
-<ChatWindowIndex :text="item.text" :timestamp="item.timestamp" :float="item.fromId == 1 ? 'left' : 'right'" />
+<ChatWindowIndex :text="item.text" :timestamp="item.timestamp" :float="item.fromId == 1 ? 'left' : 'right'" :scheme="state.dataState.friends[state.selectedId].scheme" />
   </div>
 </div>
 <div class="input">
