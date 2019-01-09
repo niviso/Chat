@@ -47,6 +47,8 @@ export default {
         scrollToBottom(id) {
             document.getElementById(id).scrollTo(0, 9999);
         },
+        mounted(){
+        }
     }
 }
 

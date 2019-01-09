@@ -33,7 +33,6 @@ export default{
     }
   },
   mounted(){
-
   },
   methods:{
     hover(){

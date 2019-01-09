@@ -31,5 +31,5 @@ const ColorScheme = {
       black: "black",
       fontColor: "black"
     }
-  }
+}
   export default ColorScheme;

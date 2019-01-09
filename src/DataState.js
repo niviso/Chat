@@ -7,13 +7,13 @@ class DataState{
           id: 0,
           name: 'Nikki Sollid',
           img: 'https://cdn.road.cc/sites/default/files/pictures/picture-35067-1466804626.gif',
-          scheme: 'default'
+          scheme: 'red'
         },
         {
           id: 1,
           name: 'Lisa Normal',
           img: 'https://cdn.dribbble.com/users/1210339/screenshots/2773807/avatar20.gif',
-          scheme: 'default'
+          scheme: 'blue'
         },
         {
           id: 2,

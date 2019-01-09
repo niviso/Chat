@@ -41,7 +41,6 @@ export default {
     }
   },
   mounted(){
-    console.log(this.ColorScheme);
     this.dateUpdate = setInterval(x=>{ 
       if(this.timestamp){
         this.dateIndex = moment(this.timestamp).fromNow(true);
